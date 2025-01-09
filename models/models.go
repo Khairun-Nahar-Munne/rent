@@ -33,10 +33,15 @@ type RentalProperty struct {
 }
 
 type PropertyDetails struct {
-    Id             int64          `orm:"auto;pk"`
-    RentalProperty *RentalProperty `orm:"rel(fk);column(rental_property_id)"` // Foreign key to RentalProperty table
-    ImageUrl       string         `orm:"size(500);column(image_url)"`
-    Description    string         `orm:"type(text);column(description)"`
+    Id             int64           `orm:"auto;pk"`
+    RentalProperty *RentalProperty `orm:"rel(fk);column(rental_property_id)"` 
+    ImageUrl1      string          `orm:"size(500);column(image_url_1)"`
+    ImageUrl2      string          `orm:"size(500);column(image_url_2)"`
+    ImageUrl3      string          `orm:"size(500);column(image_url_3)"`
+    ImageUrl4      string          `orm:"size(500);column(image_url_4)"`
+    ImageUrl5      string          `orm:"size(500);column(image_url_5)"`
+    Description    string          `orm:"type(text);column(description)"`
+    CityInTrans    string          `orm:"size(255);column(city_in_trans)"`
 }
 
 func init() {

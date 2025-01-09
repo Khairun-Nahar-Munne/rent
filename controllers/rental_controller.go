@@ -16,6 +16,37 @@ type RentalPropertyController struct {
     web.Controller
 }
 
+// Add new struct for the first API response
+type FirstAPIResponse struct {
+    Data struct {
+        HotelPhotos []struct {
+            LargeUrl string `json:"large_url"`
+        } `json:"hotelPhotos"`
+        HotelTranslation []struct {
+            Description string `json:"description"`
+        } `json:"hotelTranslation"`
+    } `json:"data"`
+    Status  bool   `json:"status"`
+    Message string `json:"message"`
+}
+
+// Update PropertyDetailResponse to include city_in_trans
+type PropertyDetailResponse struct {
+    Data struct {
+        FacilitiesBlock struct {
+            Facilities []struct {
+                Name string `json:"name"`
+                Icon string `json:"icon"`
+            } `json:"facilities"`
+        } `json:"facilities_block"`
+        TpiBlock []struct {
+            GuestCount int `json:"guest_count"`
+        } `json:"tpi_block"`
+        AccommodationTypeName string `json:"accommodation_type_name"`
+        CityInTrans          string `json:"city_in_trans"`
+    } `json:"data"`
+}
+
 type SearchResponse struct {
     Data struct {
         Results []struct {
@@ -50,27 +81,9 @@ type SearchResponse struct {
         Breadcrumbs []struct {
             Name string `json:"name"`
         } `json:"breadcrumbs"`
-        SearchMeta struct {
-            NbAdults   int `json:"nbAdults"`
-            NbChildren int `json:"nbChildren"`
-        } `json:"searchMeta"`
     } `json:"data"`
 }
 
-type PropertyDetailResponse struct {
-    Data struct {
-        FacilitiesBlock struct {
-            Facilities []struct {
-                Name string `json:"name"`
-                Icon string `json:"icon"`
-            } `json:"facilities"`
-        } `json:"facilities_block"`
-        TpiBlock []struct {
-            GuestCount int `json:"guest_count"`
-        } `json:"tpi_block"`
-        AccommodationTypeName string `json:"accommodation_type_name"`
-    } `json:"data"`
-}
 
 func (c *RentalPropertyController) FetchAndStoreProperties() {
     o := orm.NewOrm()
@@ -86,15 +99,12 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
 
     client := &http.Client{}
     
-    // Get tomorrow's date for check-in and the day after tomorrow for check-out
     checkIn := time.Now().AddDate(0, 0, 1).Format("2006-01-02")
-    checkOut := time.Now().AddDate(0, 0, 2).Format("2006-01-02")
+    checkOut := time.Now().AddDate(0, 0, 3).Format("2006-01-02")
 
-    var properties []models.RentalProperty  // Slice to store fetched properties
+    var properties []models.RentalProperty
 
     for _, location := range locations {
-        
-
         url := fmt.Sprintf("https://booking-com18.p.rapidapi.com/web/stays/search?destId=%s&destType=%s&checkIn=%s&checkOut=%s",
             location.DestId, location.DestType, checkIn, checkOut)
 
@@ -115,15 +125,39 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
         defer resp.Body.Close()
 
         var searchResp SearchResponse
-        decoder := json.NewDecoder(resp.Body)
-        if err := decoder.Decode(&searchResp); err != nil {
+        if err := json.NewDecoder(resp.Body).Decode(&searchResp); err != nil {
             fmt.Printf("Error decoding response for location %s: %v\n", location.Value, err)
             continue
         }
 
-        // Process and store each property
         for _, result := range searchResp.Data.Results {
-            // Fetch additional details from the second API
+            // First API call to get photos and description
+            firstDetailURL := fmt.Sprintf("https://booking-com18.p.rapidapi.com/web/stays/details?id=%s&checkIn=%s&checkOut=%s", result.ID, checkIn, checkOut)
+
+            firstDetailReq, err := http.NewRequest("GET", firstDetailURL, nil)
+            if err != nil {
+                fmt.Printf("Error creating first detail request for property %d: %v\n", result.BasicPropertyData.ID, err)
+                continue
+            }
+
+            firstDetailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
+            firstDetailReq.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
+
+            firstDetailResp, err := client.Do(firstDetailReq)
+            if err != nil {
+                fmt.Printf("Error making first detail request for property %d: %v\n", result.BasicPropertyData.ID, err)
+                continue
+            }
+            defer firstDetailResp.Body.Close()
+
+            var firstDetailData FirstAPIResponse
+            firstDetailBody, _ := ioutil.ReadAll(firstDetailResp.Body)
+            if err := json.Unmarshal(firstDetailBody, &firstDetailData); err != nil {
+                fmt.Printf("Error decoding first detail response for property %d: %v\n", result.BasicPropertyData.ID, err)
+                continue
+            }
+
+            // Second API call (existing detail API)
             detailURL := fmt.Sprintf("https://booking-com18.p.rapidapi.com/stays/detail?hotelId=%d&checkinDate=%s&checkoutDate=%s&units=metric",
                 result.BasicPropertyData.ID, checkIn, checkOut)
 
@@ -143,26 +177,14 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
             defer detailResp.Body.Close()
 
-            // Read the raw response body
-            rawDetailRespBody, err := ioutil.ReadAll(detailResp.Body)
-            if err != nil {
-                fmt.Printf("Error reading detail response body for property %d: %v\n", result.BasicPropertyData.ID, err)
-                continue
-            }
-
-            // Print the raw response body for debugging
-            fmt.Printf("Raw detail response body for property %d: %s\n", result.BasicPropertyData.ID, rawDetailRespBody)
-
             var detailRespData PropertyDetailResponse
-            if err := json.Unmarshal(rawDetailRespBody, &detailRespData); err != nil {
+            detailBody, _ := ioutil.ReadAll(detailResp.Body)
+            if err := json.Unmarshal(detailBody, &detailRespData); err != nil {
                 fmt.Printf("Error decoding detail response for property %d: %v\n", result.BasicPropertyData.ID, err)
                 continue
             }
 
-            // Debug print the detail response
-            fmt.Printf("Detail response for property %d: %+v\n", result.BasicPropertyData.ID, detailRespData)
-
-            // Extract amenities (first three names from facilities)
+            // Create and store the RentalProperty
             amenities := []string{}
             for i, facility := range detailRespData.Data.FacilitiesBlock.Facilities {
                 if i >= 3 {
@@ -171,10 +193,6 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
                 amenities = append(amenities, facility.Name)
             }
 
-            // Extract type
-            propertyType := detailRespData.Data.AccommodationTypeName
-
-            // Extract guest count
             guestCount := 0
             if len(detailRespData.Data.TpiBlock) > 0 {
                 guestCount = detailRespData.Data.TpiBlock[0].GuestCount
@@ -193,10 +211,9 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
                 Price:           result.PriceDisplayInfoIrene.DisplayPrice.AmountPerStay.Amount,
                 DisplayLocation: result.Location.DisplayLocation,
                 Amenities:       strings.Join(amenities, ", "),
-                Type:            propertyType,
+                Type:           detailRespData.Data.AccommodationTypeName,
             }
 
-            // Store breadcrumbs
             for i, breadcrumb := range searchResp.Data.Breadcrumbs {
                 switch i {
                 case 0:
@@ -216,17 +233,53 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
                 fmt.Printf("Error inserting property %s: %v\n", property.HotelName, err)
                 continue
             }
-            fmt.Printf("Inserted property with ID: %d\n", id)
 
-            // Append the property to the slice
+            // Create and store PropertyDetails
+            propertyDetails := &models.PropertyDetails{
+                RentalProperty: &property,
+                CityInTrans:    detailRespData.Data.CityInTrans,
+            }
+
+            // Set description if available
+            if len(firstDetailData.Data.HotelTranslation) > 0 {
+                propertyDetails.Description = firstDetailData.Data.HotelTranslation[0].Description
+            }
+
+            // Set up to 5 image URLs
+            for i, photo := range firstDetailData.Data.HotelPhotos {
+                if i >= 5 {
+                    break
+                }
+                switch i {
+                case 0:
+                    propertyDetails.ImageUrl1 = photo.LargeUrl
+                case 1:
+                    propertyDetails.ImageUrl2 = photo.LargeUrl
+                case 2:
+                    propertyDetails.ImageUrl3 = photo.LargeUrl
+                case 3:
+                    propertyDetails.ImageUrl4 = photo.LargeUrl
+                case 4:
+                    propertyDetails.ImageUrl5 = photo.LargeUrl
+                }
+            }
+
+            // Insert property details
+            _, err = o.Insert(propertyDetails)
+            if err != nil {
+                fmt.Printf("Error inserting property details for property %d: %v\n", id, err)
+                continue
+            }
+
             properties = append(properties, property)
+            fmt.Printf("Inserted property and details with ID: %d\n", id)
         }
     }
 
     c.Data["json"] = map[string]interface{}{
-        "success":  true,
-        "message":  "Properties fetched and stored successfully",
-        "properties": properties,  // Include the fetched properties in the response
+        "success":    true,
+        "message":    "Properties and details fetched and stored successfully",
+        "properties": properties,
     }
     c.ServeJSON()
 }

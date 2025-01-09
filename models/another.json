@@ -4,74 +4,8 @@
             {
                 "id": "477063136",
                 "thumb_url": "https://cf.bstatic.com/xdata/images/hotel/max200/477063136.jpg?k=14f36e271478f984c4b24367f64215a87de9a8e936e5b91eb454654950111085&o=&hp=1",
-                "large_url": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/477063136.jpg?k=14f36e271478f984c4b24367f64215a87de9a8e936e5b91eb454654950111085&o=&hp=1",
-                "highres_url": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/477063136.jpg?k=14f36e271478f984c4b24367f64215a87de9a8e936e5b91eb454654950111085&o=&hp=1",
-                "orientation": "landscape",
-                "created": "2023-07-12 18:49:52",
-                "grid": {
-                    "photo_width": 4000,
-                    "photo_height": 2670
-                }
-            }
-        ],
-        "genericFacilityHighlight": [
-            {
-                "title": "Sea view"
-            },
-            {
-                "title": "Swimming pool"
-            },
-            {
-                "title": "Terrace"
-            },
-            {
-                "title": "Free parking"
-            },
-            {
-                "title": "Air conditioning"
-            },
-            {
-                "title": "Private Bathroom"
-            },
-            {
-                "title": "Daily housekeeping"
-            },
-            {
-                "title": "Non-smoking rooms"
-            }
-        ],
-        "roomTableQueryResult": [
-            {
-                "__typename": "RoomTableQueryResult",
-                "searchConfigOverride": null,
-                "isBookingHome": false,
-                "hotelId": 9673878,
-                "propertyName": "Hotel Moraine",
-                "isSoldOut": false,
-                "eligibleForCaplaMicrofunnel": false,
-                "areaMeasurementUnit": "SQUARE_METER",
-                "accommodationTypeId": 204,
-                "hasRoomsWithDifferentPrivacyLevels": false,
-                "stars": 4,
-                "mealPlans": [],
-                "breakfastScore": {
-                    "__ref": "RTBreakfastScore:{}"
-                },
-                "breakfastType": 0,
-                "bedComfortReviewScore": {
-                    "__typename": "RTBedComfortReviewScore",
-                    "reviewsCount": 12,
-                    "score": 8.8
-                },
-                "genius": null,
-                "roomCards": []
-            }
-        ],
-        
-        "property": [
-            {
-                "__typename": "PropertyType",
-                "type": "HOTEL"
+                "large_url": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/477063136.jpg?k=14f36e271478f984c4b24367f64215a87de9a8e936e5b91eb454654950111085&o=&hp=1"
+                
             }
         ],
         "propertyReview": [
@@ -114,11 +48,8 @@
         
         "hotelTranslation": [
             {
-                "__typename": "HotelTranslation",
-                "name": "Hotel Moraine",
-                "description": "Located in Greenport, 24 miles from Splish Splash, Hotel Moraine provides accommodations with free bikes, free private parking, a seasonal outdoor swimming pool and a fitness center. The property has a private beach area, as well as a shared lounge and a bar. Guests can have a drink at the snack bar.\n\nThe hotel will provide guests with air-conditioned rooms with a closet, a coffee machine, a fridge, a minibar, a safety deposit box, a TV and a private bathroom with a shower. Each room is equipped with an electric tea pot, while certain rooms include a terrace and others also offer sea views. Guest rooms at Hotel Moraine are equipped with a seating area.\n\nGuests at the accommodation will be able to enjoy activities in and around Greenport, like hiking.\n\nLong Island MacArthur Airport is 46 miles away.",
-                "finePrint": null,
-                "metadata": null
+                "description": "Located in Greenport, 24 miles from Splish Splash, Hotel Moraine provides accommodations with free bikes, free private parking, a seasonal outdoor swimming pool and a fitness center. The property has a private beach area, as well as a shared lounge and a bar. Guests can have a drink at the snack bar.\n\nThe hotel will provide guests with air-conditioned rooms with a closet, a coffee machine, a fridge, a minibar, a safety deposit box, a TV and a private bathroom with a shower. Each room is equipped with an electric tea pot, while certain rooms include a terrace and others also offer sea views. Guest rooms at Hotel Moraine are equipped with a seating area.\n\nGuests at the accommodation will be able to enjoy activities in and around Greenport, like hiking.\n\nLong Island MacArthur Airport is 46 miles away."
+             
             }
         ]
     },
