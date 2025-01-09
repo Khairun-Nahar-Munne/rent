@@ -1,0 +1,992 @@
+{
+  "data": {
+    "facilities_block": {
+      "facilities": [
+        { "icon": "pool", "name": "1 swimming pool" },
+        { "name": "Non-smoking rooms", "icon": "nosmoking" },
+        { "name": "Pet friendly", "icon": "pawprint" },
+        { "icon": "fitness", "name": "Fitness center" },
+        { "name": "Beachfront", "icon": "beach" },
+        { "icon": "wifi", "name": "Free Wifi" },
+        { "icon": "disabled", "name": "Facilities for disabled guests" },
+        { "name": "Private Parking", "icon": "parking_sign" },
+        { "name": "Free parking", "icon": "parking_sign" }
+      ],
+      "type": "popular",
+      "name": "Most Popular Facilities"
+    },
+    "accommodation_type_name": "Hotels",
+   
+    "room_recommendation": [
+      {
+        "adults": 1,
+        "total_extra_bed_price_in_hotel_currency": 0,
+        "number_of_extra_beds": 0.0,
+        "children": 0,
+        "total_extra_bed_price": 0,
+        "block_id": "967387802_379493455_2_0_0",
+        "babies": 0
+      }
+    ],
+    "url": "https://www.booking.com/hotel/us/moraine.html",
+    "recommended_block_title": "Recommended for 1 adult",
+    "preferences": [],
+    "accommodation_type": 204,
+    "review_nr": 52,
+    "booking_home": {},
+    "payment_product": "accept_cc",
+    "default_wishlist_name": "Greenport",
+    "is_cpv2_property": 1,
+    "hotel_include_breakfast": 0,
+    "last_reservation": { "time": "", "countrycode": null, "country": null },
+    "check_only_x_left": 1,
+    "min_room_distribution": { "adults": 1, "children": [] },
+    "seen_cc_app_rp_missing_fac": 0,
+    "districts": [],
+    "is_preferred_plus": 0,
+    "district": "",
+    "seen_cc_app_hp_missing_info": 0,
+    "property_highlight_strip_saba": {
+      "clientVersion": 88,
+      "trackedExperiments": [
+        {
+          "variant": 0,
+          "id": "0",
+          "uviType": "device_id",
+          "shouldTrack": false,
+          "uvi": "50796a6e-9fd7-49dc-a7a6-967518562598",
+          "name": "android_px_pp_needs_profile_highlight_strip"
+        }
+      ],
+      "mfeId": "b-saba-bhapps-highlight-strip-mfe/saba",
+      "serverVersion": 117,
+      "root": {
+        "type": "core.ScrollView",
+        "props": {
+          "direction": "horizontal",
+          "component": {
+            "props": {
+              "items": [
+                {
+                  "props": {
+                    "component": {
+                      "props": {
+                        "alignment": "center",
+                        "spacing": "spacing_2x",
+                        "items": [
+                          {
+                            "props": {
+                              "margin": { "top": "spacing_half" },
+                              "component": {
+                                "type": "bui.Avatar",
+                                "props": {
+                                  "content": "parking_sign",
+                                  "background": "tinted",
+                                  "size": "large"
+                                }
+                              }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "props": {
+                              "font": "small_2",
+                              "alignment": "center",
+                              "lines": 1,
+                              "text": "Free parking"
+                            },
+                            "type": "bui.Label"
+                          }
+                        ],
+                        "fitContentWidth": true
+                      },
+                      "type": "core.layout.Column"
+                    },
+                    "margin": {
+                      "bottom": "spacing_4x",
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "end": "spacing_2x"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "type": "core.Margin",
+                  "props": {
+                    "margin": {
+                      "end": "spacing_2x",
+                      "bottom": "spacing_4x",
+                      "start": "spacing_2x",
+                      "top": "spacing_4x"
+                    },
+                    "component": {
+                      "props": {
+                        "spacing": "spacing_2x",
+                        "alignment": "center",
+                        "fitContentWidth": true,
+                        "items": [
+                          {
+                            "props": {
+                              "component": {
+                                "props": {
+                                  "size": "large",
+                                  "content": "pawprint",
+                                  "background": "tinted"
+                                },
+                                "type": "bui.Avatar"
+                              },
+                              "margin": { "top": "spacing_half" }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "props": {
+                              "text": "Pet friendly",
+                              "alignment": "center",
+                              "font": "small_2",
+                              "lines": 1
+                            },
+                            "type": "bui.Label"
+                          }
+                        ]
+                      },
+                      "type": "core.layout.Column"
+                    }
+                  }
+                },
+                {
+                  "props": {
+                    "margin": {
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "bottom": "spacing_4x",
+                      "end": "spacing_2x"
+                    },
+                    "component": {
+                      "type": "core.layout.Column",
+                      "props": {
+                        "items": [
+                          {
+                            "props": {
+                              "component": {
+                                "props": {
+                                  "background": "tinted",
+                                  "content": "pool",
+                                  "size": "large"
+                                },
+                                "type": "bui.Avatar"
+                              },
+                              "margin": { "top": "spacing_half" }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "type": "bui.Label",
+                            "props": {
+                              "lines": 1,
+                              "alignment": "center",
+                              "font": "small_2",
+                              "text": "Outdoor pool"
+                            }
+                          }
+                        ],
+                        "fitContentWidth": true,
+                        "alignment": "center",
+                        "spacing": "spacing_2x"
+                      }
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "component": {
+                      "type": "core.layout.Column",
+                      "props": {
+                        "spacing": "spacing_2x",
+                        "alignment": "center",
+                        "fitContentWidth": true,
+                        "items": [
+                          {
+                            "type": "core.Margin",
+                            "props": {
+                              "component": {
+                                "type": "bui.Avatar",
+                                "props": {
+                                  "content": "eye",
+                                  "background": "tinted",
+                                  "size": "large"
+                                }
+                              },
+                              "margin": { "top": "spacing_half" }
+                            }
+                          },
+                          {
+                            "type": "bui.Label",
+                            "props": {
+                              "text": "Sea view",
+                              "lines": 1,
+                              "font": "small_2",
+                              "alignment": "center"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "margin": {
+                      "bottom": "spacing_4x",
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "end": "spacing_2x"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "component": {
+                      "props": {
+                        "fitContentWidth": true,
+                        "items": [
+                          {
+                            "props": {
+                              "component": {
+                                "type": "bui.Avatar",
+                                "props": {
+                                  "size": "large",
+                                  "content": "info_sign",
+                                  "background": "tinted"
+                                }
+                              },
+                              "margin": { "top": "spacing_half" }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "props": {
+                              "text": "Air conditioning",
+                              "font": "small_2",
+                              "alignment": "center",
+                              "lines": 1
+                            },
+                            "type": "bui.Label"
+                          }
+                        ],
+                        "spacing": "spacing_2x",
+                        "alignment": "center"
+                      },
+                      "type": "core.layout.Column"
+                    },
+                    "margin": {
+                      "start": "spacing_2x",
+                      "top": "spacing_4x",
+                      "bottom": "spacing_4x",
+                      "end": "spacing_2x"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "component": {
+                      "type": "core.layout.Column",
+                      "props": {
+                        "alignment": "center",
+                        "spacing": "spacing_2x",
+                        "items": [
+                          {
+                            "props": {
+                              "margin": { "top": "spacing_half" },
+                              "component": {
+                                "props": {
+                                  "content": "shower",
+                                  "background": "tinted",
+                                  "size": "large"
+                                },
+                                "type": "bui.Avatar"
+                              }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "props": {
+                              "text": "Private bathroom",
+                              "font": "small_2",
+                              "alignment": "center",
+                              "lines": 1
+                            },
+                            "type": "bui.Label"
+                          }
+                        ],
+                        "fitContentWidth": true
+                      }
+                    },
+                    "margin": {
+                      "end": "spacing_2x",
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "bottom": "spacing_4x"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "margin": {
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "bottom": "spacing_4x",
+                      "end": "spacing_2x"
+                    },
+                    "component": {
+                      "type": "core.layout.Column",
+                      "props": {
+                        "alignment": "center",
+                        "spacing": "spacing_2x",
+                        "items": [
+                          {
+                            "props": {
+                              "component": {
+                                "props": {
+                                  "content": "eye",
+                                  "background": "tinted",
+                                  "size": "large"
+                                },
+                                "type": "bui.Avatar"
+                              },
+                              "margin": { "top": "spacing_half" }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "type": "bui.Label",
+                            "props": {
+                              "lines": 1,
+                              "font": "small_2",
+                              "alignment": "center",
+                              "text": "View"
+                            }
+                          }
+                        ],
+                        "fitContentWidth": true
+                      }
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "margin": {
+                      "end": "spacing_2x",
+                      "start": "spacing_2x",
+                      "top": "spacing_4x",
+                      "bottom": "spacing_4x"
+                    },
+                    "component": {
+                      "props": {
+                        "fitContentWidth": true,
+                        "items": [
+                          {
+                            "props": {
+                              "margin": { "top": "spacing_half" },
+                              "component": {
+                                "type": "bui.Avatar",
+                                "props": {
+                                  "content": "wifi",
+                                  "background": "tinted",
+                                  "size": "large"
+                                }
+                              }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "props": {
+                              "alignment": "center",
+                              "font": "small_2",
+                              "lines": 1,
+                              "text": "Free Wifi"
+                            },
+                            "type": "bui.Label"
+                          }
+                        ],
+                        "spacing": "spacing_2x",
+                        "alignment": "center"
+                      },
+                      "type": "core.layout.Column"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "margin": {
+                      "end": "spacing_2x",
+                      "bottom": "spacing_4x",
+                      "start": "spacing_2x",
+                      "top": "spacing_4x"
+                    },
+                    "component": {
+                      "props": {
+                        "spacing": "spacing_2x",
+                        "alignment": "center",
+                        "fitContentWidth": true,
+                        "items": [
+                          {
+                            "props": {
+                              "component": {
+                                "props": {
+                                  "background": "tinted",
+                                  "content": "shower",
+                                  "size": "large"
+                                },
+                                "type": "bui.Avatar"
+                              },
+                              "margin": { "top": "spacing_half" }
+                            },
+                            "type": "core.Margin"
+                          },
+                          {
+                            "type": "bui.Label",
+                            "props": {
+                              "text": "Shower",
+                              "lines": 1,
+                              "alignment": "center",
+                              "font": "small_2"
+                            }
+                          }
+                        ]
+                      },
+                      "type": "core.layout.Column"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "props": {
+                    "component": {
+                      "type": "core.layout.Column",
+                      "props": {
+                        "items": [
+                          {
+                            "type": "core.Margin",
+                            "props": {
+                              "margin": { "top": "spacing_half" },
+                              "component": {
+                                "props": {
+                                  "size": "large",
+                                  "background": "tinted",
+                                  "content": "fitness"
+                                },
+                                "type": "bui.Avatar"
+                              }
+                            }
+                          },
+                          {
+                            "props": {
+                              "text": "Fitness center",
+                              "alignment": "center",
+                              "font": "small_2",
+                              "lines": 1
+                            },
+                            "type": "bui.Label"
+                          }
+                        ],
+                        "fitContentWidth": true,
+                        "alignment": "center",
+                        "spacing": "spacing_2x"
+                      }
+                    },
+                    "margin": {
+                      "top": "spacing_4x",
+                      "start": "spacing_2x",
+                      "bottom": "spacing_4x",
+                      "end": "spacing_2x"
+                    }
+                  },
+                  "type": "core.Margin"
+                },
+                {
+                  "type": "core.OnTap",
+                  "props": {
+                    "component": {
+                      "props": {
+                        "component": {
+                          "type": "core.layout.Column",
+                          "props": {
+                            "spacing": "spacing_2x",
+                            "alignment": "center",
+                            "fitContentWidth": true,
+                            "items": [
+                              {
+                                "type": "core.Margin",
+                                "props": {
+                                  "component": {
+                                    "type": "bui.Avatar",
+                                    "props": {
+                                      "size": "large",
+                                      "background": "tinted",
+                                      "content": "dots_horizontal",
+                                      "tintColor": "action_background"
+                                    }
+                                  },
+                                  "margin": { "top": "spacing_half" }
+                                }
+                              },
+                              {
+                                "type": "bui.Label",
+                                "props": {
+                                  "alignment": "center",
+                                  "font": "small_2",
+                                  "lines": 1,
+                                  "color": "action_foreground",
+                                  "text": "More"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "margin": {
+                          "end": "spacing_2x",
+                          "top": "spacing_4x",
+                          "start": "spacing_2x",
+                          "bottom": "spacing_4x"
+                        }
+                      },
+                      "type": "core.Margin"
+                    },
+                    "actions": [
+                      {
+                        "props": {
+                          "goalIndex": 1,
+                          "experiment": {
+                            "variant": 0,
+                            "id": "0",
+                            "uviType": "device_id",
+                            "shouldTrack": false,
+                            "uvi": "50796a6e-9fd7-49dc-a7a6-967518562598",
+                            "name": "android_px_pp_needs_profile_highlight_strip"
+                          }
+                        },
+                        "type": "core.et.TrackCustomGoal"
+                      },
+                      {
+                        "type": "core.OpenUrl",
+                        "props": {
+                          "url": "booking://property_subpages/?hotel_id=9673878&page_to_open=1&hotel_name=Hotel%20Moraine&checkin=2025-01-09&checkout=2025-01-12&adults_count=1&rooms_count=1"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "type": "core.layout.Row"
+          }
+        }
+      }
+    },
+    "is_exclusive": null,
+    "top_ufi_benefits": [
+      { "icon": "pawprint", "translated_name": "Pet friendly" }
+    ],
+    "qualifies_for_no_cc_reservation": 0,
+    "soldout": 0,
+    "is_family_friendly": 0,
+    "zip": "NY 11944",
+    "average_room_size_for_ufi_m2": "59.20",
+    "countrycode": "us",
+    "city_in_trans": "in Greenport",
+    "is_eligible_for_horizontal_scroll": 1,
+    "is_tpi_exclusive_property": 0,
+    "district_id": 0,
+    "default_language": "en-us",
+    "timezone": "America/New_York",
+    "latitude": 41.101622,
+    "hotel_id": 9673878,
+    "arrival_date": "2025-01-09",
+    "b_blackout_android_prepayment_copy": 1,
+    "total_blocks": 3,
+    "is_closed": 0,
+    "currency_code": "USD",
+    "city": "Greenport (New York)",
+    "use_new_bui_icon_highlight": 0,
+    "longitude": -72.389331,
+    "class_is_estimated": 1,
+    "cvc_required": "0",
+    "address_trans": "",
+    "b_legal_use_neutral_color_for_persuasion_legal": 0,
+    "plq_sensitivity": "",
+    "is_preferred": 0,
+    "block_count": 3,
+    "hotel_facilities": "7,120,460,403,449,455,301,459,468,451,16,118,6,108,158,161,302,433,484,407,220,2,447,176,4,47,145,55,19,160,51,146,467,25,170,12,186,225,254,101,46,143,185,221,109,461,222,114,22,70,104,11,219,107,117,96,463,450,203,195",
+    "duplicate_rates_removed": 0,
+    "only_x_left": {
+      "microfunnel_rate_selection": {},
+      "rooms_list": {
+        "967387802_379493455_2_0_0": "Only 1 left on Booking.com",
+        "967387804_379493455_2_0_0": "Only 3 left on Booking.com",
+        "967387803_379493455_2_0_0": "Only 2 left on Booking.com"
+      },
+      "microfunnel_rooms_list": {
+        "967387803": "Only 2 left on Booking.com",
+        "967387804": "Only 3 left on Booking.com",
+        "967387802": "Only 1 left on Booking.com"
+      },
+      "room_page": {
+        "967387802_379493455_2_0_0": "Only 1 left on Booking.com",
+        "967387804_379493455_2_0_0": "Only 3 left on Booking.com",
+        "967387803_379493455_2_0_0": "Only 2 left on Booking.com"
+      },
+      "post_select": {
+        "967387802_379493455_2_0_0": "You selected the last one like this left on Booking.com!",
+        "967387804_379493455_2_0_0": "You selected the last 3 like this left on Booking.com!",
+        "967387803_379493455_2_0_0": "You selected the last 2 like this left on Booking.com!"
+      }
+    },
+    "hotel_name_trans": "",
+    "max_rooms_in_reservation": 10,
+    "city_trans": "Greenport",
+    "address_required": 0,
+    "wl_dest_id": "city::20086816",
+    "country_trans": "United States of America",
+    "is_hotel_ctrip": 0,
+    "rare_find_state": "NOT_RARE",
+    "tax_exceptions": [],
+    "city_name_en": "Greenport (New York)",
+    "b_max_los_data": {
+      "max_allowed_los": 90,
+      "is_fullon": 0,
+      "extended_los": 90,
+      "default_los": 45,
+      "has_extended_los": 1,
+      "experiment": "long_stays_android_extend_los_2"
+    },
+    "rooms": {
+      "967387802": {
+        "description": "This air-conditioned studio includes a flat-screen TV with streaming services, a private bathroom as well as a terrace with sea views. The unit offers 1 bed.",
+        "facilities": [
+          {
+            "facilitytype_id": 5,
+            "alt_facilitytype_id": 5,
+            "alt_facilitytype_name": "Bathroom",
+            "id": 19,
+            "name": "Bathrobe"
+          },
+          {
+            "facilitytype_id": 34,
+            "alt_facilitytype_id": 1,
+            "alt_facilitytype_name": "General",
+            "id": 211,
+            "name": "Carbon monoxide detector"
+          },
+          {
+            "name": "Coffee machine",
+            "id": 120,
+            "alt_facilitytype_name": "Kitchen",
+            "alt_facilitytype_id": 12,
+            "facilitytype_id": 7
+          },
+          {
+            "name": "Safe",
+            "alt_facilitytype_name": "General",
+            "id": 6,
+            "facilitytype_id": 4,
+            "alt_facilitytype_id": 1
+          },
+          {
+            "name": "Sea view",
+            "alt_facilitytype_name": "View",
+            "id": 108,
+            "facilitytype_id": 9,
+            "alt_facilitytype_id": 14
+          },
+          {
+            "alt_facilitytype_id": 6,
+            "facilitytype_id": 6,
+            "alt_facilitytype_name": "Media & Technology",
+            "id": 75,
+            "name": "Flat-screen TV"
+          },
+          {
+            "name": "Outdoor furniture",
+            "alt_facilitytype_name": "Outdoors",
+            "id": 129,
+            "facilitytype_id": 7,
+            "alt_facilitytype_id": 13
+          },
+          {
+            "alt_facilitytype_name": "Accessibility",
+            "id": 134,
+            "alt_facilitytype_id": 19,
+            "facilitytype_id": 19,
+            "name": "Entire unit wheelchair accessible"
+          },
+          {
+            "name": "Sitting area",
+            "alt_facilitytype_name": "Living Area",
+            "id": 26,
+            "alt_facilitytype_id": 15,
+            "facilitytype_id": 4
+          },
+          {
+            "alt_facilitytype_name": "Bathroom",
+            "id": 27,
+            "facilitytype_id": 5,
+            "alt_facilitytype_id": 5,
+            "name": "Free toiletries"
+          },
+          {
+            "name": "Terrace",
+            "facilitytype_id": 9,
+            "alt_facilitytype_id": 13,
+            "alt_facilitytype_name": "Outdoors",
+            "id": 123
+          },
+          {
+            "name": "Socket near the bed",
+            "alt_facilitytype_name": "Room Amenities",
+            "id": 184,
+            "alt_facilitytype_id": 4,
+            "facilitytype_id": 4
+          },
+          {
+            "name": "Patio",
+            "id": 37,
+            "alt_facilitytype_name": "Outdoors",
+            "alt_facilitytype_id": 13,
+            "facilitytype_id": 9
+          },
+          {
+            "name": "Hairdryer",
+            "alt_facilitytype_id": 5,
+            "facilitytype_id": 5,
+            "id": 12,
+            "alt_facilitytype_name": "Bathroom"
+          },
+          {
+            "name": "TV",
+            "alt_facilitytype_id": 6,
+            "facilitytype_id": 6,
+            "id": 8,
+            "alt_facilitytype_name": "Media & Technology"
+          },
+          {
+            "id": 22,
+            "alt_facilitytype_name": "Kitchen",
+            "facilitytype_id": 7,
+            "alt_facilitytype_id": 12,
+            "name": "Refrigerator"
+          },
+          {
+            "name": "Streaming service (like Netflix)",
+            "facilitytype_id": 6,
+            "alt_facilitytype_id": 6,
+            "id": 199,
+            "alt_facilitytype_name": "Media & Technology"
+          },
+          {
+            "alt_facilitytype_name": "Food & Drink",
+            "id": 3,
+            "alt_facilitytype_id": 7,
+            "facilitytype_id": 7,
+            "name": "Minibar"
+          },
+          {
+            "name": "Entire unit located on ground floor",
+            "id": 131,
+            "alt_facilitytype_name": "Accessibility",
+            "facilitytype_id": 19,
+            "alt_facilitytype_id": 19
+          },
+          {
+            "name": "Electric kettle",
+            "id": 86,
+            "alt_facilitytype_name": "Kitchen",
+            "facilitytype_id": 7,
+            "alt_facilitytype_id": 12
+          },
+          {
+            "id": 40,
+            "alt_facilitytype_name": "General",
+            "facilitytype_id": 4,
+            "alt_facilitytype_id": 1,
+            "name": "Heating"
+          },
+          {
+            "id": 4,
+            "alt_facilitytype_name": "Bathroom",
+            "alt_facilitytype_id": 5,
+            "facilitytype_id": 5,
+            "name": "Shower"
+          },
+          {
+            "name": "Wardrobe or closet",
+            "alt_facilitytype_id": 17,
+            "facilitytype_id": 4,
+            "alt_facilitytype_name": "Bedroom",
+            "id": 95
+          },
+          {
+            "id": 141,
+            "alt_facilitytype_name": "Bathroom",
+            "facilitytype_id": 5,
+            "alt_facilitytype_id": 5,
+            "name": "Toilet paper"
+          },
+          {
+            "name": "Soundproof",
+            "alt_facilitytype_id": 1,
+            "facilitytype_id": 4,
+            "alt_facilitytype_name": "General",
+            "id": 79
+          },
+          {
+            "alt_facilitytype_id": 1,
+            "facilitytype_id": 4,
+            "id": 11,
+            "alt_facilitytype_name": "General",
+            "name": "Air conditioning"
+          },
+          {
+            "id": 85,
+            "alt_facilitytype_name": "Living Area",
+            "alt_facilitytype_id": 15,
+            "facilitytype_id": 7,
+            "name": "Dining area"
+          },
+          {
+            "alt_facilitytype_id": 5,
+            "facilitytype_id": 5,
+            "id": 38,
+            "alt_facilitytype_name": "Bathroom",
+            "name": "Private bathroom"
+          }
+        ],
+        "photos": [
+          {
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/434073181.jpg?k=bd77b179a25287d7629a694387bc459eaba44cf91cd0f8b6fd3f93a3a6086c5d&o=",
+            "photo_id": 434073181,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/434073181.jpg?k=bd77b179a25287d7629a694387bc459eaba44cf91cd0f8b6fd3f93a3a6086c5d&o=",
+            "ratio": 0.66735112936345,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/434073181.jpg?k=bd77b179a25287d7629a694387bc459eaba44cf91cd0f8b6fd3f93a3a6086c5d&o=",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/434073181.jpg?k=bd77b179a25287d7629a694387bc459eaba44cf91cd0f8b6fd3f93a3a6086c5d&o=",
+            "last_update_date": "2023-03-02 03:48:22"
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/477066518.jpg?k=8a459d040ec38642cf7c00c443e4c831d1484f63132dee365e9b8533026463d8&o=",
+            "last_update_date": "2023-07-12 19:02:47",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/477066518.jpg?k=8a459d040ec38642cf7c00c443e4c831d1484f63132dee365e9b8533026463d8&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/477066518.jpg?k=8a459d040ec38642cf7c00c443e4c831d1484f63132dee365e9b8533026463d8&o=",
+            "photo_id": 477066518,
+            "ratio": 0.667391304347826,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/477066518.jpg?k=8a459d040ec38642cf7c00c443e4c831d1484f63132dee365e9b8533026463d8&o="
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/477066810.jpg?k=8d448a4ce21e493a956e5c06e6648bd7fb1c45d2a3ac69e465c6624f00f85c50&o=",
+            "last_update_date": "2023-07-12 19:03:22",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/477066810.jpg?k=8d448a4ce21e493a956e5c06e6648bd7fb1c45d2a3ac69e465c6624f00f85c50&o=",
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/477066810.jpg?k=8d448a4ce21e493a956e5c06e6648bd7fb1c45d2a3ac69e465c6624f00f85c50&o=",
+            "ratio": 0.667391304347826,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/477066810.jpg?k=8d448a4ce21e493a956e5c06e6648bd7fb1c45d2a3ac69e465c6624f00f85c50&o=",
+            "photo_id": 477066810
+          },
+          {
+            "photo_id": 477067185,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/477067185.jpg?k=1eb498493d157a105810d0219e4a3cfa4dd1765b0f1f25930167a7a8a037b734&o=",
+            "ratio": 0.667443454420836,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/477067185.jpg?k=1eb498493d157a105810d0219e4a3cfa4dd1765b0f1f25930167a7a8a037b734&o=",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/477067185.jpg?k=1eb498493d157a105810d0219e4a3cfa4dd1765b0f1f25930167a7a8a037b734&o=",
+            "last_update_date": "2023-07-12 19:04:15",
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/477067185.jpg?k=1eb498493d157a105810d0219e4a3cfa4dd1765b0f1f25930167a7a8a037b734&o="
+          },
+          {
+            "url_max300": "https://cf.bstatic.com/xdata/images/hotel/max300/477067206.jpg?k=bdace415bcfc5d153971e8e5d4c8ad1125cf3434656507ebe3c62bf8c9fe3b21&o=",
+            "last_update_date": "2023-07-12 19:04:18",
+            "url_square60": "https://cf.bstatic.com/xdata/images/hotel/square60/477067206.jpg?k=bdace415bcfc5d153971e8e5d4c8ad1125cf3434656507ebe3c62bf8c9fe3b21&o=",
+            "photo_id": 477067206,
+            "url_640x200": "https://cf.bstatic.com/xdata/images/hotel/640x200/477067206.jpg?k=bdace415bcfc5d153971e8e5d4c8ad1125cf3434656507ebe3c62bf8c9fe3b21&o=",
+            "ratio": 0.6674166783856,
+            "url_original": "https://cf.bstatic.com/xdata/images/hotel/max500/477067206.jpg?k=bdace415bcfc5d153971e8e5d4c8ad1125cf3434656507ebe3c62bf8c9fe3b21&o="
+          }
+        ],
+        "highlights": [
+          { "translated_name": "Free WiFi", "icon": "bui_wifi" },
+          { "icon": "bui_eye", "translated_name": "Sea view", "id": 108 },
+          {
+            "id": 11,
+            "translated_name": "Air conditioning",
+            "icon": "bui_weather_snowflake"
+          },
+          { "icon": "bui_resort", "translated_name": "Patio", "id": 37 },
+          {
+            "icon": "bui_bath",
+            "id": 38,
+            "translated_name": "Attached bathroom"
+          },
+          {
+            "icon": "bui_screen",
+            "id": 75,
+            "translated_name": "Flat-screen TV"
+          },
+          {
+            "translated_name": "Soundproof",
+            "id": 79,
+            "icon": "bui_soundproof"
+          },
+          { "id": 123, "translated_name": "Terrace", "icon": "bui_resort" },
+          {
+            "id": 120,
+            "translated_name": "Coffee machine",
+            "icon": "bui_tea_maker"
+          },
+          {
+            "id": 3,
+            "translated_name": "Minibar",
+            "icon": "bui_food_and_drink"
+          }
+        ],
+        "private_bathroom_count": 0,
+        "private_bathroom_highlight": {
+          "text": "Private bathroom with shower",
+          "has_highlight": 1
+        },
+        "apartment_configuration": null,
+        "bed_configurations": [
+          {
+            "bed_types": [
+              {
+                "description_imperial": "71–82 inches wide",
+                "description_localized": null,
+                "bed_type": 3,
+                "name_with_count": "1 king bed",
+                "description": "181–210 cm wide",
+                "name": "King bed(s)",
+                "count": 1
+              }
+            ]
+          }
+        ],
+        "children_and_beds_text": {
+          "children_at_the_property": [
+            { "text": "Children of all ages are welcome.", "highlight": 0 },
+            {
+              "text": "To see correct prices and occupancy info, add the number and ages of children in your group to your search.",
+              "highlight": 1
+            }
+          ],
+          "allow_children": 1,
+          "age_intervals": [],
+          "cribs_and_extra_beds": [
+            { "text": "No capacity for extra beds or cribs.", "highlight": 0 }
+          ]
+        }
+      }
+    },
+    "is_vp2_enrolled": 0,
+    "languages_spoken": { "languagecode": ["en-gb"] }
+  },
+  "status": true,
+  "message": "Successful"
+}

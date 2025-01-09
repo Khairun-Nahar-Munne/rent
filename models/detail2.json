@@ -1,0 +1,27 @@
+{
+  "data": {
+    "facilities_block": {
+      "type": "popular",
+      "facilities": [
+        { "icon": "nosmoking", "name": "Non-smoking rooms" },
+        { "name": "Fitness center", "icon": "fitness" },
+        { "name": "Room service", "icon": "clean" },
+        { "name": "Restaurant", "icon": "food_and_drink" },
+        { "name": "Facilities for disabled guests", "icon": "disabled" },
+        { "icon": "parking_sign", "name": "Private Parking" },
+        { "icon": "family", "name": "Family rooms" },
+        { "icon": "wifi", "name": "Free Wifi" },
+        { "icon": "parking_sign", "name": "Parking" }
+      ],
+      "name": "Most Popular Facilities"
+    },
+    "tpi_block": [
+      {
+        
+        "guest_count": 1
+      }
+    ],
+    "accommodation_type_name": "Hotels",
+    "city_in_trans": "in New York"
+  }
+}
