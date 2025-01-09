@@ -6,6 +6,6 @@ import (
 )
 
 func init() {
-    web.Router("/fetch_locations", &controllers.LocationController{}, "get:FetchAndStoreLocations")
+    web.Router("/api/locations/fetch", &controllers.LocationController{}, "get:FetchAndStoreLocations")
     web.Router("/api/properties/fetch", &controllers.RentalPropertyController{}, "get:FetchAndStoreProperties")
 }
