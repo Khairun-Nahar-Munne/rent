@@ -36,7 +36,7 @@ func (c *LocationController) FetchAndStoreLocations() {
 
 	// Add headers
 	req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-	req.Header.Add("x-rapidapi-key", "b4cbec24e7mshfbffa9d05183e3cp1e47fbjsn83ba404ceb4e")
+	req.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
 
 	// Make request
 	resp, err := client.Do(req)

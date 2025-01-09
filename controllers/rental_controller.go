@@ -93,10 +93,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
     var properties []models.RentalProperty  // Slice to store fetched properties
 
     for _, location := range locations {
-        // Skip if destType is "hotel"
-        if location.DestType == "hotel" {
-            continue
-        }
+        
 
         url := fmt.Sprintf("https://booking-com18.p.rapidapi.com/web/stays/search?destId=%s&destType=%s&checkIn=%s&checkOut=%s",
             location.DestId, location.DestType, checkIn, checkOut)
@@ -108,7 +105,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
         }
 
         req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-        req.Header.Add("x-rapidapi-key", "b4cbec24e7mshfbffa9d05183e3cp1e47fbjsn83ba404ceb4e")
+        req.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
 
         resp, err := client.Do(req)
         if err != nil {
@@ -137,7 +134,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
 
             detailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-            detailReq.Header.Add("x-rapidapi-key", "b4cbec24e7mshfbffa9d05183e3cp1e47fbjsn83ba404ceb4e")
+            detailReq.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
 
             detailResp, err := client.Do(detailReq)
             if err != nil {
