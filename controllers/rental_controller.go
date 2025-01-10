@@ -115,7 +115,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
         }
 
         req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-        req.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
+        req.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
 
         resp, err := client.Do(req)
         if err != nil {
@@ -141,7 +141,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
 
             firstDetailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-            firstDetailReq.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
+            firstDetailReq.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
 
             firstDetailResp, err := client.Do(firstDetailReq)
             if err != nil {
@@ -168,7 +168,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
 
             detailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-            detailReq.Header.Add("x-rapidapi-key", "a086eb4944mshde04dbeb7635d1dp153b0fjsn73c31892df55")
+            detailReq.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
 
             detailResp, err := client.Do(detailReq)
             if err != nil {
