@@ -22,7 +22,6 @@ type FilteredLocation struct {
 }
 
 func (c *LocationController) FetchAndStoreLocations() {
-    // Get the API key from the configuration file
     apiKey, err := web.AppConfig.String("api_key")
     if err != nil || apiKey == "" {
         c.Data["json"] = map[string]interface{}{
@@ -32,10 +31,8 @@ func (c *LocationController) FetchAndStoreLocations() {
         return
     }
 
-    // Create HTTP client
     client := &http.Client{}
 
-    // Create request
     url := "https://booking-com18.p.rapidapi.com/web/stays/auto-complete?query=USA"
     req, err := http.NewRequest("GET", url, nil)
     if err != nil {
@@ -44,7 +41,6 @@ func (c *LocationController) FetchAndStoreLocations() {
         return
     }
 
-    // Add headers
     req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
     req.Header.Add("x-rapidapi-key", apiKey)
 
