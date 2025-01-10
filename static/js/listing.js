@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function loadPropertiesByLocation(locationId) {
     $.ajax({
-        url: '/v1/property/list',
+        url: 'http://localhost:8080/v1/property/list',
         method: 'GET',
         success: function(response) {
             if (response.success) {
@@ -118,7 +118,7 @@ function displayProperties(properties) {
 
 function handleBreadcrumbClick(locationName, level) {
     $.ajax({
-        url: '/v1/property/list',
+        url: 'http://localhost:8080/v1/property/list',
         method: 'GET',
         success: function(response) {
             if (response.success) {
@@ -136,7 +136,7 @@ function handleBreadcrumbClick(locationName, level) {
 
 function searchLocations(query) {
     $.ajax({
-        url: '/v1/property/list',
+        url: 'http://localhost:8080/v1/property/list',
         method: 'GET',
         success: function(response) {
             if (response.success) {

@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 function loadPropertyDetails(propertyId) {
   $.ajax({
-    url: `/v1/property/details?property_id=${propertyId}`,
+    url: `http://localhost:8080/v1/property/details?property_id=${propertyId}`,
     method: "GET",
     success: function (response) {
       if (response.success) {
@@ -124,7 +124,7 @@ function displayPropertyDetails(property) {
   document.getElementById("propertyDetails").innerHTML = detailsHTML;
 }
 function handleBreadcrumbClick(locationName, level) {
-  window.location.href = `/?location=${encodeURIComponent(locationName)}`;
+  window.location.href = `http://localhost:8080/?location=${encodeURIComponent(locationName)}`;
 }
 
 function updateMainImage(src) {
