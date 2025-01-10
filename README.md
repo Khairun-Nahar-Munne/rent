@@ -1,6 +1,6 @@
 # Cat APP Go Project
 
-This project is a Go-based backend service that interacts with The Cat API to provide various cat-related functionalities. It uses the Beego web framework and offers endpoints for fetching random cat images, breed information, favoriting images, and voting on cats.
+This project aims to fetch data from Booking.com and store it in a local PostgreSQL database. We will create a backend API using the Beego framework to serve the property data and design two front-end pages: property listing and property details.
 
 ## Table of Contents
 
@@ -28,20 +28,33 @@ Before you begin, ensure you have the following installed on your system:
 
 - [Go](https://golang.org/) - The main programming language
 - [Beego v2](https://github.com/beego/beego) - Web framework for building the API
-- [The Cat API](https://thecatapi.com/) - External API for cat-related data
 - [TailwindCSS](https://tailwindcss.com/) - Front-end css framework
 
 
 ## Key Features
 
-- Fetch random cat images
-- Retrieve comprehensive breed information
-- Get breed-specific images
-- Favorite cat images
-- Vote on cat images
-- Manage favorite cat images (add, list, delete)
-- Configuration management using Beego's app.conf
-- Testing 
+## Key Features
+- **Data Fetching and Storage:**
+  - Fetch data from Booking.com API.
+  - Store the fetched data in a local PostgreSQL database.
+
+- **Database Schema:**
+  - **Location Table:** Stores location names details.
+  - **Rental Property Table:** Provides basic information about properties such as name, type, bedroom, bathroom,  guest, location breadcrumb and amenities.
+  - **Property Details Table:** Stores detailed information about properties, including images, city and descriptions.
+
+- **Backend API using Beego Framework:**
+  - **/v1/property/list:** Endpoint to provide a list of properties for a specific location.
+  - **/v1/property/details:** Endpoint to provide detailed information about a specific property.
+
+- **Front-end Pages:**
+  - **Property Listing Page:**
+    - Displays a list of properties for a given location.
+    - Includes a search box for location-based searches.
+    - Uses AJAX to load property tiles without page reloads.
+  - **Property Details Page:**
+    - Displays detailed information about a selected property.
+    - Navigates from the property listing page by clicking on a property tile.
 
 ## Installation
 
@@ -106,24 +119,27 @@ This project requires an API key from The Cat API. To obtain one:
 2. Sign up for an account
 3. Subscribe for the test
 3. Ann API key will be generated in your dashboard
-4. There is already API Key of mine. You can use it untill the api request rate limit is exceeded. You have to change api keys in the location controller and rental controller. (in 4 places)
+4. There is already API Key of mine. You can use it untill the api request rate limit is exceeded. You have to change api keys in the location controller and rental controller. 
 ### 2. Configuration File
 
 Create a `conf/app.conf` file in the project root with the following content:
 
 ```ini
-appname = rent
+appname = rent-web
 httpport = 8080
 runmode = dev
-cat_api_url = "https://api.thecatapi.com/v1"
-api_key = "live_i5ikdgttExQhChEMpt7UuGateqcwS8IVYlMGGBwSO3Mp7CatoYAhl9VAUgZ76Pqa"
+api_key = "5871a5c278msh858d5b59a204dbbp1b44d5jsnd5c0bc2d25ee"
 ```
-
-You can replace `api_key` with the API key you obtained from The Cat API.
-
+You can use your api_key if you blocked using my api_key
 ## Running the Project
 
 To run the project, use the following command from the project root directory:
+
+1. For using postgres and pgadmin:
+```
+docker-compose up
+```
+2. Open another terminal and run the project
 
 ```
 bee run
@@ -135,59 +151,45 @@ If you don't have `bee` installed, you can install it with:
 go get github.com/beego/bee/v2
 ```
 
+3. To fetch the data from booking.com api:
 
-The server will start, and you should see output indicating that it's running on `http://localhost:8080`.
+- Run this `http://localhost:8080/api/locations/fetch` for fetching and storing locations data.
+- Run this `http://localhost:8080/api/properties/fetch` for fetching and storing rental property and property details data.
 
-## Running the Test
+4. To see the rent website: 
+- Run this `http://localhost:8080/`.
 
-Run the test
-```
-go test -v ./tests 
-```
-Get Coverage
-```
-Step 1: go test -coverprofile coverage.out ./...
-Step 2: go tool cover -func=coverage.out | grep total: | awk '{print $3}'
-```
-If you want to see coverage of each file in html
-```
-go tool cover -html coverage.out    
-```
 
 ## API Endpoints
 
 The project provides the following API endpoints:
 
-- `GET /api/cat/fetch`: Fetch a random cat image
-- `GET /api/breeds`: Get a list of all cat breeds
-- `GET /api/breed/:id`: Get specific breeds
-- `POST /api/favorites`: Add a cat image to favorites
-- `POST /api/votes`: Vote on a cat image
-- `GET /api/votes`: Get latest votes
-- `GET /api/get_favorites`: Get a list of favorite cat images
-- `DELETE /api/favourite/:id`: Delete a favorite cat image
-
+- `GET /api/locations/fetch`: Fetch and store location
+- `GET /api/properties/fetch`: Fetch and store rental property and property details
+- `GET /v1/property/list`: Feth data from location and rental property tables
+- `GET /v1/property/details`: Fetch data from rental property and property details tables
+- `GET /`: Render property lists
+- `GET /property-details`: Render property details
 
 ## Project Structure
 
 The project follows a standard Beego directory structure:
 
 ```
-cat-app/
+rent/
 ├── conf/
 │   └── app.conf
 ├── controllers/
 │   ├── location_controller.go
 │   ├── rental_controller.go
 │   ├── property_controller.go
-│   ├── default.go
-│   └── vote_controller.go
+│   └── default.go
 ├── routers/
 │   └── router.go
 ├── models/
 │   └── models.go
 ├── views/
-│   └── index.tpl
+│   ├── index.tpl
 │   └── property-details.tpl
 ├── static/
 │   ├── img
@@ -196,6 +198,7 @@ cat-app/
 │       ├── details.js
 │       └── reload.min.js
 ├── main.go
+├── docker-compose.yml
 ├── go.mod
 ├── go.sum
 └── README.md
@@ -205,17 +208,5 @@ cat-app/
 - `controllers/`: Contains the logic for handling API requests (fetcing and store data from booking.com api and fetch the data from local database)
 - `routers/`: Defines the routing for the application
 - `models/`: Define structure of the data of database
-- `tests/`: contains all tests file
 - `main.go`: The entry point of the application
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Authors
-This project is for Django admin panel practice created by me for assignment purposes during my internship days at w3 egnineers ltd. 
- 
-Khairun Nahar Munne  – khairunnaharmunne81@gmail.com
- 
- You can find me here at:
-[Github](https://github.com/Khairun-Nahar-Munne) 

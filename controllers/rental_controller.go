@@ -87,10 +87,19 @@ type SearchResponse struct {
 
 func (c *RentalPropertyController) FetchAndStoreProperties() {
     o := orm.NewOrm()
+    apiKey, err := web.AppConfig.String("api_key")
+    if err != nil || apiKey == "" {
+        c.Data["json"] = map[string]interface{}{
+            "error": "API key is missing in configuration",
+        }
+        c.ServeJSON()
+        return
+    }
+
     
     // Get all locations from the database
     var locations []models.Location
-    _, err := o.QueryTable("location").All(&locations)
+    _, err = o.QueryTable("location").All(&locations)
     if err != nil {
         c.Data["json"] = map[string]interface{}{"error": fmt.Sprintf("Error fetching locations: %v", err)}
         c.ServeJSON()
@@ -115,7 +124,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
         }
 
         req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-        req.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
+        req.Header.Add("x-rapidapi-key", apiKey)
 
         resp, err := client.Do(req)
         if err != nil {
@@ -141,7 +150,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
 
             firstDetailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-            firstDetailReq.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
+            firstDetailReq.Header.Add("x-rapidapi-key", apiKey)
 
             firstDetailResp, err := client.Do(firstDetailReq)
             if err != nil {
@@ -168,7 +177,7 @@ func (c *RentalPropertyController) FetchAndStoreProperties() {
             }
 
             detailReq.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-            detailReq.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
+            detailReq.Header.Add("x-rapidapi-key", apiKey)
 
             detailResp, err := client.Do(detailReq)
             if err != nil {

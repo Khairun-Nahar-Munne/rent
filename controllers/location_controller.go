@@ -22,6 +22,16 @@ type FilteredLocation struct {
 }
 
 func (c *LocationController) FetchAndStoreLocations() {
+    // Get the API key from the configuration file
+    apiKey, err := web.AppConfig.String("api_key")
+    if err != nil || apiKey == "" {
+        c.Data["json"] = map[string]interface{}{
+            "error": "API key is missing in configuration",
+        }
+        c.ServeJSON()
+        return
+    }
+
     // Create HTTP client
     client := &http.Client{}
 
@@ -36,7 +46,7 @@ func (c *LocationController) FetchAndStoreLocations() {
 
     // Add headers
     req.Header.Add("x-rapidapi-host", "booking-com18.p.rapidapi.com")
-    req.Header.Add("x-rapidapi-key", "87b0822e28msh2a36d071068c413p1b1a5ejsn6091577e3bce")
+    req.Header.Add("x-rapidapi-key", apiKey)
 
     // Make request
     resp, err := client.Do(req)

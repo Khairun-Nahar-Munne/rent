@@ -13,13 +13,7 @@ import (
 type PropertyController struct {
     web.Controller
 }
-func (c *PropertyController) ListPage() {
-    c.TplName = "index.tpl"
-}
 
-func (c *PropertyController) DetailsPage() {
-    c.TplName = "property-details.tpl"
-}
 // Struct to hold the response for /v1/property/list
 type PropertyListResponse struct {
     Success   bool                     `json:"success"`
@@ -49,6 +43,30 @@ type PropertyResponse struct {
     DisplayLocation []string `json:"display_location"`
     Amenities       []string `json:"amenities"`
     Type            string `json:"type"`
+    Images          []string `json:"images"`
+}
+type PropertyDetailsResponse struct {
+    Success  bool                `json:"success"`
+    Property PropertyDetailsData `json:"property"`
+}
+
+type PropertyDetailsData struct {
+    Id              int64    `json:"id"`
+    PropertyId      int64    `json:"property_id"`
+    PropertySlugId  string   `json:"property_slug_id"`
+    HotelName       string   `json:"hotel_name"`
+    Bedrooms        int      `json:"bedrooms"`
+    Bathrooms       int      `json:"bathrooms"`
+    GuestCount      int      `json:"guest_count"`
+    Rating          float64  `json:"rating"`
+    ReviewCount     int      `json:"review_count"`
+    Price           string   `json:"price"`
+    Breadcrumbs     []string `json:"breadcrumbs"`
+    DisplayLocation []string `json:"display_location"`
+    Amenities       []string `json:"amenities"`
+    Type            string   `json:"type"`
+    Description     string   `json:"description"`
+    CityInTrans     string   `json:"city_in_trans"`
     Images          []string `json:"images"`
 }
 
@@ -159,30 +177,7 @@ func (c *PropertyController) ListProperties() {
     c.ServeJSON()
 }
 
-type PropertyDetailsResponse struct {
-    Success  bool                `json:"success"`
-    Property PropertyDetailsData `json:"property"`
-}
 
-type PropertyDetailsData struct {
-    Id              int64    `json:"id"`
-    PropertyId      int64    `json:"property_id"`
-    PropertySlugId  string   `json:"property_slug_id"`
-    HotelName       string   `json:"hotel_name"`
-    Bedrooms        int      `json:"bedrooms"`
-    Bathrooms       int      `json:"bathrooms"`
-    GuestCount      int      `json:"guest_count"`
-    Rating          float64  `json:"rating"`
-    ReviewCount     int      `json:"review_count"`
-    Price           string   `json:"price"`
-    Breadcrumbs     []string `json:"breadcrumbs"`
-    DisplayLocation []string `json:"display_location"`
-    Amenities       []string `json:"amenities"`
-    Type            string   `json:"type"`
-    Description     string   `json:"description"`
-    CityInTrans     string   `json:"city_in_trans"`
-    Images          []string `json:"images"`
-}
 
 // /v1/property/details
 func (c *PropertyController) PropertyDetails() {
@@ -284,4 +279,11 @@ func (c *PropertyController) PropertyDetails() {
 
     c.Data["json"] = response
     c.ServeJSON()
+}
+func (c *PropertyController) ListPage() {
+    c.TplName = "index.tpl"
+}
+
+func (c *PropertyController) DetailsPage() {
+    c.TplName = "property-details.tpl"
 }
