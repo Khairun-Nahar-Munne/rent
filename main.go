@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/beego/beego/v2/client/orm"
 	_ "github.com/lib/pq"
-	"github.com/beego/beego/v2/server/web"
+	beego "github.com/beego/beego/v2/server/web"
 	_ "rent/routers"
 )
 
@@ -16,5 +16,5 @@ func main() {
 
 
 	// Start the Beego application
-	web.Run()
+	beego.Run()
 }

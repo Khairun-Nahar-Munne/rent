@@ -7,12 +7,12 @@ import (
     "net/http"
 
     "github.com/beego/beego/v2/client/orm"
-    "github.com/beego/beego/v2/server/web"
+    beego "github.com/beego/beego/v2/server/web"
     "rent/models"
 )
 
 type LocationController struct {
-    web.Controller
+    beego.Controller
 }
 
 type FilteredLocation struct {
@@ -21,8 +21,8 @@ type FilteredLocation struct {
     Value    string `json:"value"`
 }
 
-func (c *LocationController) FetchAndStoreLocations() {
-    apiKey, err := web.AppConfig.String("api_key")
+func (c *LocationController) Get() {
+    apiKey, err := beego.AppConfig.String("api_key")
     if err != nil || apiKey == "" {
         c.Data["json"] = map[string]interface{}{
             "error": "API key is missing in configuration",

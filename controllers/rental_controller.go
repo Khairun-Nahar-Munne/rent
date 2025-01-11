@@ -8,12 +8,12 @@ import (
     "strings"
     "time"
     "github.com/beego/beego/v2/client/orm"
-    "github.com/beego/beego/v2/server/web"
+    beego "github.com/beego/beego/v2/server/web"
     "rent/models"
 )
 
 type RentalPropertyController struct {
-    web.Controller
+    beego.Controller
 }
 
 // Add new struct for the first API response
@@ -85,9 +85,9 @@ type SearchResponse struct {
 }
 
 
-func (c *RentalPropertyController) FetchAndStoreProperties() {
+func (c *RentalPropertyController) Get() {
     o := orm.NewOrm()
-    apiKey, err := web.AppConfig.String("api_key")
+    apiKey, err := beego.AppConfig.String("api_key")
     if err != nil || apiKey == "" {
         c.Data["json"] = map[string]interface{}{
             "error": "API key is missing in configuration",
