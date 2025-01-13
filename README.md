@@ -1,7 +1,6 @@
 # Cat APP Go Project
 
-This project aims to fetch data from Booking.com and store it in a local PostgreSQL database. We will create a backend API using the Beego framework to serve the property data and design two front-end pages: property listing and property details.
-
+This project aims to fetch data from Booking.com and store it in a local PostgreSQL database. 
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
