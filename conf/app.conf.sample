@@ -1,0 +1,4 @@
+appname = rent-web
+httpport = 8080
+runmode = dev
+api_key = "your_api_key"
