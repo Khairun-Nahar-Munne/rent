@@ -1,4 +1,4 @@
-# Cat APP Go Project
+# Rent By Owner Go Database Project
 
 This project aims to fetch data from Booking.com and store it in a local PostgreSQL database. 
 ## Table of Contents
